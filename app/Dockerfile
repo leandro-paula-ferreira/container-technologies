@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM nginx:1.25-alpine
 
 ADD app.gz /usr/share/nginx/html/
 
