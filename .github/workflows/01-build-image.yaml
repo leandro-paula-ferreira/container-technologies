@@ -55,6 +55,14 @@ jobs:
         run: |
           docker image push ${{ secrets.DOCKERHUB_USERNAME }}/container-technologies:v${{ steps.calculate-version.outputs.version-string }}
       
+      - name: Workflow Completed
+        run: |
+          echo "===================================="
+          echo "Pipeline finalizado com sucesso!"
+          echo "Versão: v${{ steps.calculate-version.outputs.version-string }}"
+          echo "Imagem: ${{ secrets.DOCKERHUB_USERNAME }}/container-technologies:v${{ steps.calculate-version.outputs.version-string }}"
+          echo "===================================="
+      
       - name: Open Pull Request
         uses: devops-infra/action-pull-request@v0.5.5
         with:
